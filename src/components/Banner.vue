@@ -1,27 +1,46 @@
 <template>
   <div class="banner">
-    <vs-row>
-      <vs-col
-        class="wrapper"
-        vs-type="flex"
-        vs-justify="center"
-        vs-align="center"
-        w="6"
-      >
-        <h2>New Brand</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo in
-          dolores sunt, quia consectetur necessitatibus laboriosam earum
-          perferendis corporis voluptatibus, delectus nostrum natus veritatis
-          maxime temporibus illo pariatur, labore reiciendis ex ipsam nesciunt
-          aperiam. Quod omnis tempora tempore quidem, at officia cumque a
-          ratione quibusdam.
-        </p>
-        <vs-button danger square size="xl" style="display: inline-block">
-          New Brand
-        </vs-button>
-      </vs-col>
-    </vs-row>
+    <a-carousel autoplay>
+      <div class="carousel-wrapper">
+        <img src="../assets/banner.jpg" width="100%" alt="" />
+        <div>
+          <a-row type="flex" justify="start">
+            <a-col :span="12">
+              <h2>New Brand One</h2>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Quaerat, id praesentium! Possimus quod qui voluptate dolore
+                suscipit et nostrum dicta vero dolores minus vel ullam obcaecati
+                quos dolor eos assumenda nesciunt iste enim, aut nobis
+                perferendis inventore corporis illum? Pariatur, obcaecati nam.
+                Officiis doloremque atque illo impedit odio cumque perspiciatis.
+              </p>
+            </a-col>
+          </a-row>
+        </div>
+      </div>
+      <div>
+        <div class="carousel-wrapper">
+          <img src="../assets/banner2.jpg" width="100%" alt="" />
+          <div>
+            <a-row type="flex" justify="start">
+              <a-col :span="12">
+                <h2>New Brand two</h2>
+                <p>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Quaerat, id praesentium! Possimus quod qui voluptate dolore
+                  suscipit et nostrum dicta vero dolores minus vel ullam
+                  obcaecati quos dolor eos assumenda nesciunt iste enim, aut
+                  nobis perferendis inventore corporis illum? Pariatur,
+                  obcaecati nam. Officiis doloremque atque illo impedit odio
+                  cumque perspiciatis.
+                </p>
+              </a-col>
+            </a-row>
+          </div>
+        </div>
+      </div>
+    </a-carousel>
   </div>
 </template>
 
@@ -32,14 +51,27 @@ export default {
 </script>
 
 <style scoped>
-.banner {
-  background: url("../assets/banner.jpg") no-repeat center;
+.ant-carousel >>> .slick-slide {
+  text-align: center;
   height: 500px;
-  width: 100%;
-  background-size: cover;
-  margin-top: -10px;
+  background: #364d79;
+  overflow: hidden;
 }
-.wrapper {
-  margin: 142px 40px;
+.ant-carousel >>> .slick-slide h3 {
+  color: #000;
+}
+.ant-carousel >>> .slick-dots li button {
+  background: #000;
+}
+.ant-carousel >>> .slick-dots li.slick-active button {
+  background: #1890ff !important;
+}
+.carousel-wrapper {
+  position: relative;
+}
+.carousel-wrapper > div {
+  position: absolute;
+  top: 160px;
+  left: 120px;
 }
 </style>

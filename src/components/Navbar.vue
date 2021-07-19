@@ -1,56 +1,35 @@
 <template>
-  <div class="center">
-    <vs-navbar center-collapsed v-model="active" fixed>
-      <template #left>
-        <img class="brand" src="../assets/logo.png" alt="" />
-      </template>
-      <vs-navbar-item id="home" :active="active == 'home'">
+  <div class="nav-container">
+    <div class="logo"></div>
+    <a-menu
+      theme="dark"
+      mode="horizontal"
+      :default-selected-keys="['1']"
+      :style="{ lineHeight: '64px' }"
+    >
+      <a-menu-item key="1">
         <router-link to="/">Home</router-link>
-      </vs-navbar-item>
-      <vs-navbar-item id="about" :active="active == 'about'">
+      </a-menu-item>
+      <a-menu-item key="2">
         <router-link to="/about">About</router-link>
-      </vs-navbar-item>
-      <template #right>
-        <vs-button flat>Login</vs-button>
-        <vs-button>Get Started</vs-button>
-      </template>
-    </vs-navbar>
-    <div class="square">
-      <router-view />
-    </div>
+      </a-menu-item>
+    </a-menu>
   </div>
 </template>
 
 <script>
 export default {
   name: "Navbar",
-  data() {
-    return {
-      active: "home",
-    };
-  },
 };
 </script>
 
 <style>
-.center .vs-navbar {
-  min-height: 60px !important;
-}
-.center .vs-navbar__item {
-  padding: 0;
-}
-.center .vs-navbar__item a {
-  color: #2c3e50;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  padding: 15px;
-}
-.brand {
-  width: auto;
-  height: 40px;
-}
-.square {
-  margin-top: 70px;
+.nav-container .logo {
+  width: 120px;
+  height: 31px;
+  background: url("../assets/logo.png") no-repeat center;
+  background-size: contain;
+  margin: 16px 28px 16px 0;
+  float: left;
 }
 </style>
