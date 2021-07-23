@@ -2,7 +2,7 @@
   <a-space direction="vertical" size="large" style="padding: 50px">
     <a-row :gutter="[24, 24]">
       <a-col class="gutter-row" :span="6" v-for="item in items" :key="item.id">
-        <a-card @click="testClick(item.id)" hoverable>
+        <a-card @click="openThisProduct(item)" hoverable>
           <img slot="cover" alt="example" :src="item.img" />
           <a-card-meta :title="item.title + item.id">
             <template slot="description"> {{ item.description }} </template>
@@ -78,9 +78,9 @@ export default {
     };
   },
   methods: {
-    testClick(id) {
-      console.log("444444444444444", id);
-      this.$router.push({ name: "Product", params: { userId: id } });
+    openThisProduct(item) {
+      console.log("444444444444444", item.id);
+      this.$router.push({ name: "Product", params: { item } });
     },
   },
 };
