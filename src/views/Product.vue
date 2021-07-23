@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div>title of the product : {{ title + " " + id }}</div>
-    <img :src="img" alt="" />
-    {{ description }}
-    <Counter></Counter>
+    <div>title of the product : {{ product.title + " " + product.id }}</div>
+    <img :src="product.img" alt="" />
+    {{ product.description }}
+    <Counter :product="product"></Counter>
     <br />
     <router-link to="/"> Home </router-link>
   </div>
@@ -15,7 +15,7 @@ export default {
   components: { Counter },
   data() {
     return {
-      ...this.$route.params.item,
+      product: { ...this.$route.params.item },
     };
   },
   computed: {},
