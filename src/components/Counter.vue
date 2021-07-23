@@ -41,13 +41,21 @@ export default {
       this.value--;
     },
     addToCart() {
-      // store.commit("addProductToCart", this.product);
       this.product.value = this.value;
       this.addProductToCart({ ...this.product });
     },
     removeFromCart() {
       this.removeProductToCart(this.product.id);
     },
+    updateValue() {
+      let check = this.cart.find((v) => v.id === this.product.id);
+      if (check) {
+        this.value = check.value;
+      }
+    },
+  },
+  mounted() {
+    this.updateValue();
   },
 };
 </script>
