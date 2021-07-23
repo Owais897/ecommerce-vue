@@ -24,11 +24,11 @@ export default new Vuex.Store({
       }
       console.log(" state.cart: ", state.cart);
     },
-    removeProductToCart(state, payload) {
-      if (!payload.item) {
+    removeProductToCart(state, id) {
+      if (!id) {
         return;
       }
-      state.cart = [...this.cart.filter((v) => v.id !== payload.item.id)];
+      state.cart = [...state.cart.filter((v) => v.id !== id)];
     },
   },
   actions: {},

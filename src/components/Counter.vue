@@ -6,6 +6,9 @@
     <button v-show="value > 0" class="btn" @click="addToCart()">
       Add to cart
     </button>
+    <button v-show="value > 0" class="btn" @click="removeFromCart()">
+      removeFromCart
+    </button>
   </div>
 </template>
 
@@ -42,6 +45,9 @@ export default {
       // store.commit("addProductToCart", this.product);
       this.product.value = this.value;
       this.addProductToCart({ ...this.product });
+    },
+    removeFromCart() {
+      this.removeProductToCart(this.product.id);
     },
   },
 };
