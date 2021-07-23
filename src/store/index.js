@@ -9,8 +9,6 @@ export default new Vuex.Store({
   },
   mutations: {
     addProductToCart(state, payload) {
-      console.log("state: ", state);
-      console.log("payload: ", payload);
       let check = true;
 
       state.cart.forEach((element) => {
@@ -22,7 +20,6 @@ export default new Vuex.Store({
       if (check) {
         state.cart.push(payload);
       }
-      console.log(" state.cart: ", state.cart);
     },
     removeProductToCart(state, id) {
       if (!id) {

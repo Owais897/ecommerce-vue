@@ -79,7 +79,6 @@ export default {
   },
   methods: {
     openThisProduct(item) {
-      console.log("444444444444444", item.id);
       this.$router.push({ name: "Product", params: { item } });
     },
   },

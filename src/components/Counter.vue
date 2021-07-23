@@ -29,7 +29,6 @@ export default {
   watch: {
     value() {
       this.product.value === this.value;
-      console.log("111111111111111", this.cart);
     },
   },
   methods: {
