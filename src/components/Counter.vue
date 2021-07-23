@@ -41,7 +41,7 @@ export default {
     addToCart() {
       // store.commit("addProductToCart", this.product);
       this.product.value = this.value;
-      this.addProductToCart(this.product);
+      this.addProductToCart({ ...this.product });
     },
   },
 };
