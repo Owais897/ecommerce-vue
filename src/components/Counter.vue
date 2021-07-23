@@ -6,7 +6,7 @@
     <button v-show="value > 0" class="btn" @click="addToCart()">
       Add to cart
     </button>
-    <button v-show="value > 0" class="btn" @click="removeFromCart()">
+    <button v-show="value > 0" class="delete" @click="removeFromCart()">
       removeFromCart
     </button>
   </div>
@@ -82,6 +82,14 @@ input {
   border-radius: 0.5rem;
   width: auto;
   background: #41b983;
+  margin-top: 1rem;
+  color: white;
+  cursor: pointer;
+}
+.delete {
+  border-radius: 0.5rem;
+  width: auto;
+  background: #c42626;
   margin-top: 1rem;
   color: white;
   cursor: pointer;
