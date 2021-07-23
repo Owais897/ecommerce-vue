@@ -13,6 +13,9 @@
       <a-menu-item key="2">
         <router-link to="/about">About</router-link>
       </a-menu-item>
+      <a-menu-item key="3">
+        <router-link to="/cart">View cart</router-link>
+      </a-menu-item>
     </a-menu>
   </div>
 </template>
