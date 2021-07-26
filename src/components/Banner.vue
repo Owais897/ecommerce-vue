@@ -2,7 +2,7 @@
   <div class="banner">
     <a-carousel autoplay>
       <div class="carousel-wrapper">
-        <img src="../assets/banner.jpg" width="100%" alt="" />
+        <img src="../assets/images/banner/banner.jpg" width="100%" alt="" />
         <div>
           <a-row type="flex" justify="start">
             <a-col :span="12">
@@ -21,7 +21,7 @@
       </div>
       <div>
         <div class="carousel-wrapper">
-          <img src="../assets/banner2.jpg" width="100%" alt="" />
+          <img src="../assets/images/banner/banner2.jpg" width="100%" alt="" />
           <div>
             <a-row type="flex" justify="start">
               <a-col :span="12">
