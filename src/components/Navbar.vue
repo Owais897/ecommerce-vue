@@ -15,7 +15,7 @@
       </a-menu-item>
       <a-menu-item key="3" :style="{ float: 'right' }">
         <router-link to="/cart">
-          <a-badge :count="1">
+          <a-badge :count="allProductLength">
             <a href="#" class="head-example" />
             <a-icon
               type="shopping-cart"
@@ -29,8 +29,12 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "Navbar",
+  computed: {
+    ...mapGetters(["allProductLength"]),
+  },
 };
 </script>
 

@@ -50,6 +50,9 @@ export default new Vuex.Store({
       state.cart = [...state.cart.filter((v) => v.id !== id)];
     },
   },
+  getters: {
+    allProductLength: (state) => state.cart.filter((v) => v.value != 0).length,
+  },
   actions: {},
   modules: {},
 });
