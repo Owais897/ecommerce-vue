@@ -43,6 +43,12 @@ export default new Vuex.Store({
         }
       });
     },
+    removeProduct(state, id) {
+      if (!id) {
+        return;
+      }
+      state.cart = [...state.cart.filter((v) => v.id !== id)];
+    },
   },
   actions: {},
   modules: {},

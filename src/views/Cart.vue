@@ -6,7 +6,7 @@
         <template slot="actions" class="ant-card-actions">
           <a-icon key="up" type="up" @click="increaseNumber(c.id)" />
           <a-icon key="down" type="down" @click="decreaseCount(c.id)" />
-          <a-icon key="delete" type="delete" />
+          <a-icon key="delete" type="delete" @click="deleteProduct(c.id)" />
         </template>
         <a-card-meta :title="titleCount(c)" :description="c.description">
         </a-card-meta>
@@ -25,12 +25,15 @@ export default {
     titleCount(c) {
       return `${c.title} ${c.id} count ${c.value}`;
     },
-    ...mapMutations(["increaseCount", "decreaseCount"]),
+    ...mapMutations(["increaseCount", "decreaseCount", "removeProduct"]),
     increaseNumber(id) {
       this.increaseCount(id);
     },
     decreaseNumber(id) {
       this.decreaseCount(id);
+    },
+    deleteProduct(id) {
+      this.removeProduct(id);
     },
   },
 };
