@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     openThisProduct(item) {
-      this.$router.push({ name: "Product", params: { item } });
+      this.$router.push(`product/${item.id}`);
     },
   },
   mixins: [apiMixin],
