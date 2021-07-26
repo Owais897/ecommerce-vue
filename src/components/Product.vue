@@ -3,7 +3,7 @@
     <a-row :gutter="[24, 24]">
       <a-col class="gutter-row" :span="6" v-for="item in items" :key="item.id">
         <a-card @click="openThisProduct(item)" hoverable>
-          <img slot="cover" alt="example" :src="item.img" />
+          <img slot="cover" alt="example" :src="item.image" />
           <a-card-meta :title="item.title + item.id">
             <template slot="description"> {{ item.description }} </template>
           </a-card-meta>
@@ -14,67 +14,17 @@
 </template>
 
 <script>
+import { apiMixin } from '../mixins';
+import axios from "axios";
+
 export default {
+  created: async function() {
+    const { data } = await axios(`${this.apiURL}/products`);
+    this.items = data;
+  },
   data() {
     return {
-      items: [
-        {
-          id: 1,
-          title: "Table",
-          description:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
-          img: require(`../assets/foto.jpg`),
-        },
-        {
-          id: 2,
-          title: "Table",
-          description:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
-          img: require(`../assets/pro9.jpg`),
-        },
-        {
-          id: 3,
-          title: "Table",
-          description:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
-          img: require(`../assets/pro6.jpg`),
-        },
-        {
-          id: 4,
-          title: "Table",
-          description:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
-          img: require(`../assets/foto.jpg`),
-        },
-        {
-          id: 5,
-          title: "Table",
-          description:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
-          img: require(`../assets/pro9.jpg`),
-        },
-        {
-          id: 6,
-          title: "Table",
-          description:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
-          img: require(`../assets/foto.jpg`),
-        },
-        {
-          id: 7,
-          title: "Table",
-          description:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
-          img: require(`../assets/pro9.jpg`),
-        },
-        {
-          id: 8,
-          title: "Table",
-          description:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit",
-          img: require(`../assets/pro6.jpg`),
-        },
-      ],
+      items: [],
     };
   },
   methods: {
@@ -82,6 +32,7 @@ export default {
       this.$router.push({ name: "Product", params: { item } });
     },
   },
+  mixins: [apiMixin],
 };
 </script>
 

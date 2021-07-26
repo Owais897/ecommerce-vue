@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>title of the product : {{ product.title + " " + product.id }}</div>
-    <img :src="product.img" alt="" />
+    <img :src="product.image" alt="" />
     {{ product.description }}
     <Counter :product="product"></Counter>
     <br />
