@@ -2,7 +2,7 @@
   <div>
     <div :key="c.id" v-for="c in cart">
       <a-card v-show="c.value > 0" hoverable style="width: 300px">
-        <img slot="cover" alt="example" :src="c.img" />
+        <img slot="cover" alt="example" :src="c.image" />
         <template slot="actions" class="ant-card-actions">
           <a-icon key="up" type="up" @click="increaseNumber(c.id)" />
           <a-icon key="down" type="down" @click="decreaseCount(c.id)" />
@@ -28,6 +28,7 @@ export default {
     ...mapMutations(["increaseCount", "decreaseCount", "removeProduct"]),
     increaseNumber(id) {
       this.increaseCount(id);
+      console.log("cart: ", this.cart);
     },
     decreaseNumber(id) {
       this.decreaseCount(id);
