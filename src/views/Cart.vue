@@ -1,11 +1,11 @@
 <template>
   <div>
     <div :key="c.id" v-for="c in cart">
-      <a-card hoverable style="width: 300px">
+      <a-card v-show="c.value > 0" hoverable style="width: 300px">
         <img slot="cover" alt="example" :src="c.img" />
         <template slot="actions" class="ant-card-actions">
-          <a-icon key="up" type="up" />
-          <a-icon key="down" type="down" />
+          <a-icon key="up" type="up" @click="increaseNumber(c.id)" />
+          <a-icon key="down" type="down" @click="decreaseCount(c.id)" />
           <a-icon key="delete" type="delete" />
         </template>
         <a-card-meta :title="titleCount(c)" :description="c.description">
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 export default {
   computed: {
     ...mapState(["cart"]),
@@ -24,6 +24,13 @@ export default {
   methods: {
     titleCount(c) {
       return `${c.title} ${c.id} count ${c.value}`;
+    },
+    ...mapMutations(["increaseCount", "decreaseCount"]),
+    increaseNumber(id) {
+      this.increaseCount(id);
+    },
+    decreaseNumber(id) {
+      this.decreaseCount(id);
     },
   },
 };

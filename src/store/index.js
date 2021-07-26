@@ -27,6 +27,22 @@ export default new Vuex.Store({
       }
       state.cart = [...state.cart.filter((v) => v.id !== id)];
     },
+    increaseCount(state, id) {
+      state.cart.forEach((element) => {
+        if (element.id === id) {
+          element.value++;
+        }
+      });
+    },
+    decreaseCount(state, id) {
+      state.cart.forEach((element) => {
+        if (element.id === id) {
+          if (element.value > 0) {
+            element.value--;
+          }
+        }
+      });
+    },
   },
   actions: {},
   modules: {},

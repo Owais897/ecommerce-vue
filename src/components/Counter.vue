@@ -7,7 +7,7 @@
       Add to cart
     </button>
     <button v-show="value > 0" class="delete" @click="removeFromCart()">
-      removeFromCart
+      Remove From cart
     </button>
   </div>
 </template>
