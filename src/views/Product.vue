@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 import { apiMixin } from "../mixins";
 import Counter from "../components/Counter.vue";
 

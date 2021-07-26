@@ -13,8 +13,16 @@
       <a-menu-item key="2">
         <router-link to="/about">About</router-link>
       </a-menu-item>
-      <a-menu-item key="3">
-        <router-link to="/cart">View cart</router-link>
+      <a-menu-item key="3" :style="{ float: 'right' }">
+        <router-link to="/cart">
+          <a-badge :count="1">
+            <a href="#" class="head-example" />
+            <a-icon
+              type="shopping-cart"
+              :style="{ fontSize: '20px', marginTop: '3px' }"
+            />
+          </a-badge>
+        </router-link>
       </a-menu-item>
     </a-menu>
   </div>

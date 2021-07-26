@@ -1,14 +1,23 @@
 <template>
   <div>
-    <button @click="subtractFromCounter(product)">-</button>
+    <a-button
+      @click="subtractFromCounter(product)"
+      type="primary"
+      shape="circle"
+    >
+      -
+    </a-button>
     {{ value }}
-    <button @click="addToCounter(value)">+</button>
-    <button v-show="value > 0" class="btn" @click="addToCart()">
+    <a-button @click="addToCounter(product)" type="primary" shape="circle">
+      +
+    </a-button>
+    <br />
+    <a-button v-show="value > 0" type="primary" @click="addToCart()">
       Add to cart
-    </button>
-    <button v-show="value > 0" class="delete" @click="removeFromCart()">
+    </a-button>
+    <a-button v-show="value > 0" type="danger" @click="removeFromCart()">
       Remove From cart
-    </button>
+    </a-button>
   </div>
 </template>
 
@@ -64,34 +73,10 @@ export default {
 .counter {
   font-size: 5rem;
 }
-button {
-  border-radius: 100%;
-  border: none;
-  width: 2rem;
-  height: 2rem;
-  font-weight: 700;
-  cursor: pointer;
+.ant-btn {
+  margin: 12px 0;
 }
-input {
-  padding: 0.4rem;
-  margin: 0 0.5rem;
-  text-align: center;
-}
-
-.btn {
-  border-radius: 0.5rem;
-  width: auto;
-  background: #41b983;
-  margin-top: 1rem;
-  color: white;
-  cursor: pointer;
-}
-.delete {
-  border-radius: 0.5rem;
-  width: auto;
-  background: #c42626;
-  margin-top: 1rem;
-  color: white;
-  cursor: pointer;
+.ant-btn-danger {
+  margin-left: 10px !important;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <a-layout>
-      <a-layout-header>
+      <a-layout-header :style="{ position: 'fixed', zIndex: 1, width: '100%' }">
         <Navbar />
       </a-layout-header>
       <a-layout-content>
@@ -33,5 +33,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+.ant-layout {
+  background: white !important;
+}
+.ant-layout-content {
+  margin-top: 64px;
 }
 </style>
