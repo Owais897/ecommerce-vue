@@ -4,11 +4,24 @@
       <a-col class="gutter-row" :span="6" v-for="item in items" :key="item.id">
         <a-card @click="openThisProduct(item)" hoverable>
           <img slot="cover" alt="example" :src="item.image" />
-          <a-card-meta :title="item.title + item.id">
+          <a-card-meta>
+            <span slot="title">
+              <a-tooltip>
+                <template slot="title">
+                  {{ item.title }}
+                </template>
+                <span>{{ item.title.substring(0, 65) + '...' }}</span>
+              </a-tooltip>
+            </span>
             <template slot="description">
-              <span>{{ item.description.substring(0, 65) + "..." }}</span>
-              <br />
-              <span class="price"> Price: {{ item.price }} </span>
+              <a-tooltip>
+                <template slot="title">
+                  {{ item.description }}
+                </template>
+                <span>{{ item.description.substring(0, 65) + '...' }}</span>
+                <br />
+                <span class="price"> Price: {{ item.price }} </span>
+              </a-tooltip>
             </template>
           </a-card-meta>
         </a-card>
@@ -18,8 +31,8 @@
 </template>
 
 <script>
-import { apiMixin } from "../mixins";
-import axios from "axios";
+import { apiMixin } from '../mixins';
+import axios from 'axios';
 
 export default {
   created: async function () {
