@@ -21,7 +21,7 @@
       </a-space>
     </div>
     <div class="loader" v-else>
-      <p>Loading...</p>
+      <a-spin size="large" />
     </div>
   </div>
 </template>
