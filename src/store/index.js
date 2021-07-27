@@ -1,5 +1,5 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue';
+import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
@@ -52,6 +52,15 @@ export default new Vuex.Store({
   },
   getters: {
     allProductLength: (state) => state.cart.filter((v) => v.value != 0).length,
+    getTotalBill: (state) => {
+      return state.cart.reduce((acc, v) => {
+        if (v.value != 0) {
+          let sum = v.price * v.value;
+          return acc + sum;
+        }
+        return acc;
+      }, 0);
+    },
   },
   actions: {},
   modules: {},

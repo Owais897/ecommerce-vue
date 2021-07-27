@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div>total Bill {{ getTotalBill }}</div>
     <div :key="c.id" v-for="c in cart">
       <a-card v-show="c.value > 0" hoverable style="width: 300px">
         <img slot="cover" alt="example" :src="c.image" />
@@ -16,19 +17,20 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations, mapGetters } from 'vuex';
 export default {
   computed: {
-    ...mapState(["cart"]),
+    ...mapState(['cart']),
+    ...mapGetters(['getTotalBill']),
   },
   methods: {
     titleCount(c) {
       return `${c.title} ${c.id} count ${c.value}`;
     },
-    ...mapMutations(["increaseCount", "decreaseCount", "removeProduct"]),
+    ...mapMutations(['increaseCount', 'decreaseCount', 'removeProduct']),
     increaseNumber(id) {
       this.increaseCount(id);
-      console.log("cart: ", this.cart);
+      console.log('cart: ', this.cart);
     },
     decreaseNumber(id) {
       this.decreaseCount(id);
