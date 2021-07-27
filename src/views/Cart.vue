@@ -17,20 +17,20 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapGetters } from 'vuex';
+import { mapState, mapMutations, mapGetters } from "vuex";
 export default {
   computed: {
-    ...mapState(['cart']),
-    ...mapGetters(['getTotalBill']),
+    ...mapState(["cart"]),
+    ...mapGetters(["getTotalBill"]),
   },
   methods: {
     titleCount(c) {
       return `${c.title} ${c.id} count ${c.value}`;
     },
-    ...mapMutations(['increaseCount', 'decreaseCount', 'removeProduct']),
+    ...mapMutations(["increaseCount", "decreaseCount", "removeProduct"]),
     increaseNumber(id) {
       this.increaseCount(id);
-      console.log('cart: ', this.cart);
+      console.log("cart: ", this.cart);
     },
     decreaseNumber(id) {
       this.decreaseCount(id);

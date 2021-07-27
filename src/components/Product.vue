@@ -6,6 +6,8 @@
           <img slot="cover" alt="example" :src="item.image" />
           <a-card-meta :title="item.title + item.id">
             <template slot="description">
+              <span>{{ item.description.substring(0, 65) + "..." }}</span>
+              <br />
               <span class="price"> Price: {{ item.price }} </span>
             </template>
           </a-card-meta>

@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex';
+import { mapState, mapMutations } from "vuex";
 export default {
   data() {
     return {
@@ -34,7 +34,7 @@ export default {
     product: Object,
   },
   computed: {
-    ...mapState(['cart']),
+    ...mapState(["cart"]),
   },
   watch: {
     value() {
@@ -42,7 +42,7 @@ export default {
     },
   },
   methods: {
-    ...mapMutations(['addProductToCart', 'removeProductToCart']),
+    ...mapMutations(["addProductToCart", "removeProductToCart"]),
     addToCounter() {
       this.value++;
     },
