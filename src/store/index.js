@@ -53,13 +53,15 @@ export default new Vuex.Store({
   getters: {
     allProductLength: (state) => state.cart.filter((v) => v.value != 0).length,
     getTotalBill: (state) => {
-      return state.cart.reduce((acc, v) => {
-        if (v.value != 0) {
-          let sum = v.price * v.value;
-          return acc + sum;
-        }
-        return acc;
-      }, 0);
+      return state.cart
+        .reduce((acc, v) => {
+          if (v.value != 0) {
+            let sum = v.price * v.value;
+            return acc + sum;
+          }
+          return acc;
+        }, 0)
+        .toFixed(2);
     },
   },
   actions: {},
