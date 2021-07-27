@@ -1,5 +1,7 @@
 <template>
   <div>
+    <span class="price"> Price {{ (product.price * value).toFixed(2) }} </span>
+    <br />
     <a-button
       @click="subtractFromCounter(product)"
       type="primary"
@@ -11,7 +13,6 @@
     <a-button @click="addToCounter(product)" type="primary" shape="circle">
       +
     </a-button>
-    Price {{ (product.price * value).toFixed(2) }}
     <br />
     <a-button v-show="value > 0" type="primary" @click="addToCart()">
       Add to cart
@@ -23,7 +24,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations } from 'vuex';
 export default {
   data() {
     return {
@@ -34,7 +35,7 @@ export default {
     product: Object,
   },
   computed: {
-    ...mapState(["cart"]),
+    ...mapState(['cart']),
   },
   watch: {
     value() {
@@ -42,7 +43,7 @@ export default {
     },
   },
   methods: {
-    ...mapMutations(["addProductToCart", "removeProductToCart"]),
+    ...mapMutations(['addProductToCart', 'removeProductToCart']),
     addToCounter() {
       this.value++;
     },
@@ -79,5 +80,9 @@ export default {
 }
 .ant-btn-danger {
   margin-left: 10px !important;
+}
+.price {
+  color: orange;
+  font-size: 25px;
 }
 </style>
