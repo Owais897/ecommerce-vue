@@ -1,6 +1,6 @@
 <template>
   <div style="padding: 50px 30px">
-    <a-row>
+    <a-row :gutter="[16, 0]">
       <a-col :span="16">
         <a-list item-layout="vertical" size="large" :data-source="cart">
           <a-list-item slot="renderItem" key="item.title" slot-scope="item">
@@ -39,8 +39,8 @@
       </a-col>
       <a-col :span="8">
         <a-affix :offset-top="120">
-          <div>total Bill {{ getTotalBill }}</div>
-
+          <a-alert :message="'total Bill ' + getTotalBill" type="success" />
+          <br />
           <a-table :columns="columns" :data-source="getBillBreakDown">
             <a slot="name" slot-scope="text">{{ text }}</a>
           </a-table>
@@ -60,7 +60,7 @@ const columns = [
     scopedSlots: { customRender: 'title' },
   },
   {
-    title: 'Value',
+    title: 'Count',
     dataIndex: 'value',
     key: 'value',
     // width: 80,
@@ -72,7 +72,7 @@ const columns = [
     ellipsis: true,
   },
   {
-    title: 'Total',
+    title: 'Total/Product',
     dataIndex: 'total',
     key: 'total',
     ellipsis: true,
