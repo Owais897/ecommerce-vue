@@ -92,9 +92,14 @@
             <a-button style="margin-top: 20px" @click="handleSubmit">
               Place Order
             </a-button>
-            <a-modal v-model="visible" title="Order placed" @ok="handleOk">
+            <!-- <a-modal
+              v-model="visible"
+              title="Order placed"
+              @ok="handleOk"
+              :cancelButtonProps="{ display: 'none' }"
+            >
               <p>{{ modalMessage }}</p>
-            </a-modal>
+            </a-modal> -->
             <!-- <a-row>
               <a-col :span="12"></a-col>
               <a-col :span="12"></a-col>
@@ -154,12 +159,24 @@ export default {
         if (!err) {
           console.log('Received values of form: ', values);
 
-          this.visible = true;
+          //   this.visible = true;
           this.modalMessage = `Hi ${values.name} your order is placed on address ${values.address} with total bill of ${this.getTotalBill}`;
+          this.show();
         }
       });
     },
-    showModal() {},
+    show() {
+      this.$success({
+        title: 'Order placed',
+        // JSX support
+        content: (
+          <div>
+            <p>{this.modalMessage}</p>
+          </div>
+        ),
+      });
+    },
+
     handleOk(e) {
       console.log(e);
       this.visible = false;
