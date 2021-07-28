@@ -64,13 +64,13 @@ const columns = [
     scopedSlots: { customRender: 'title' },
   },
   {
-    title: 'Countttt',
+    title: 'Count',
     dataIndex: 'value',
     key: 'value',
     // width: 80,
   },
   {
-    title: 'Pricewww',
+    title: 'Price',
     dataIndex: 'price',
     key: 'price',
     ellipsis: true,
