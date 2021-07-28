@@ -39,7 +39,17 @@
       </a-col>
       <a-col :span="8">
         <a-affix :offset-top="120">
-          <a-alert :message="'total Bill ' + getTotalBill" type="success" />
+          <a-row>
+            <a-col :span="16">
+              <a-alert :message="'total Bill ' + getTotalBill" type="success" />
+            </a-col>
+            <a-col :span="8">
+              <a-button type="primary" @click="gotoCheckoutPage">
+                Checkout
+              </a-button></a-col
+            >
+          </a-row>
+
           <br />
           <a-table
             :columns="columns"
@@ -96,6 +106,9 @@ export default {
     ...mapGetters(['getTotalBill', 'getBillBreakDown']),
   },
   methods: {
+    gotoCheckoutPage() {
+      this.$router.push(`checkout`);
+    },
     titleCount(item) {
       return `${item.title} count ${item.value}`;
     },
