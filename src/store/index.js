@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue from "vue";
+import Vuex from "vuex";
 
 Vue.use(Vuex);
 
@@ -41,7 +41,7 @@ export default new Vuex.Store({
             element.value--;
           }
           if (element.value === 0) {
-            this.commit('removeProduct', id);
+            this.commit("removeProduct", id);
           }
         }
       });

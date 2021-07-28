@@ -17,7 +17,7 @@
                     <template slot="title">
                       {{ item.title }}
                     </template>
-                    <span>{{ item.title.substring(0, 65) + '...' }}</span>
+                    <span>{{ item.title.substring(0, 65) + "..." }}</span>
                   </a-tooltip>
                 </span>
                 <template slot="description">
@@ -25,7 +25,7 @@
                     <template slot="title">
                       {{ item.description }}
                     </template>
-                    <span>{{ item.description.substring(0, 65) + '...' }}</span>
+                    <span>{{ item.description.substring(0, 65) + "..." }}</span>
                     <br />
                     <span class="price"> Price: {{ item.price }} </span>
                   </a-tooltip>
@@ -50,8 +50,8 @@
 </template>
 
 <script>
-import { apiMixin } from '../mixins';
-import axios from 'axios';
+import { apiMixin } from "../mixins";
+import axios from "axios";
 
 export default {
   created: async function () {
