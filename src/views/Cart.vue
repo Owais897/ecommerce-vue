@@ -13,6 +13,7 @@
                 >
                   +
                 </a-button>
+                {{ item.value }}
                 <a-button
                   @click="decreaseCount(item.id)"
                   type="primary"
@@ -31,7 +32,7 @@
             </template>
             <img slot="extra" width="100px" alt="logo" :src="item.image" />
             <a-list-item-meta :description="item.description">
-              <a slot="title" :href="item.href">{{ titleCount(item) }}</a>
+              <a slot="title" :href="item.href">{{ item.title }}</a>
             </a-list-item-meta>
           </a-list-item>
         </a-list>
