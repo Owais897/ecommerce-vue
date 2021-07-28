@@ -155,7 +155,7 @@ export default {
           console.log('Received values of form: ', values);
 
           this.visible = true;
-          this.modalMessage = `Hi ${values.name} your order is placed`;
+          this.modalMessage = `Hi ${values.name} your order is placed on address ${values.address} with total bill of ${this.getTotalBill}`;
         }
       });
     },
