@@ -58,32 +58,32 @@
 <script>
 const columns = [
   {
-    title: 'Title',
-    dataIndex: 'title',
-    key: 'title',
-    scopedSlots: { customRender: 'title' },
+    title: "Title",
+    dataIndex: "title",
+    key: "title",
+    scopedSlots: { customRender: "title" },
   },
   {
-    title: 'Count',
-    dataIndex: 'value',
-    key: 'value',
+    title: "Count",
+    dataIndex: "value",
+    key: "value",
     // width: 80,
   },
   {
-    title: 'Price',
-    dataIndex: 'price',
-    key: 'price',
+    title: "Price",
+    dataIndex: "price",
+    key: "price",
     ellipsis: true,
   },
   {
-    title: 'Total/Product',
-    dataIndex: 'total',
-    key: 'total',
+    title: "Total/Product",
+    dataIndex: "total",
+    key: "total",
     ellipsis: true,
   },
 ];
 
-import { mapState, mapMutations, mapGetters } from 'vuex';
+import { mapState, mapMutations, mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -92,17 +92,17 @@ export default {
     };
   },
   computed: {
-    ...mapState(['cart']),
-    ...mapGetters(['getTotalBill', 'getBillBreakDown']),
+    ...mapState(["cart"]),
+    ...mapGetters(["getTotalBill", "getBillBreakDown"]),
   },
   methods: {
     titleCount(item) {
       return `${item.title} count ${item.value}`;
     },
-    ...mapMutations(['increaseCount', 'decreaseCount', 'removeProduct']),
+    ...mapMutations(["increaseCount", "decreaseCount", "removeProduct"]),
     increaseNumber(id) {
       this.increaseCount(id);
-      console.log('cart: ', this.cart);
+      console.log("cart: ", this.cart);
     },
     decreaseNumber(id) {
       this.decreaseCount(id);

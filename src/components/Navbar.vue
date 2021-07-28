@@ -28,16 +28,16 @@ export default {
   name: "Navbar",
   data() {
     return {
-      searchTerm: '',
-    }
+      searchTerm: "",
+    };
   },
   computed: {
     ...mapGetters(["allProductLength"]),
   },
   methods: {
     onSearch(searchTerm) {
-      this.searchTerm = '';
-      this.$router.push({ name: 'Search', params: { searchTerm } });
+      this.searchTerm = "";
+      this.$router.push({ name: "Search", params: { searchTerm } });
     },
   },
 };

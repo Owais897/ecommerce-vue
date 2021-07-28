@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h2 v-if="searchTerm" style="margin: 25px 10px 30px; text-align: left;">
+    <h2 v-if="searchTerm" style="margin: 25px 10px 30px; text-align: left">
       Search Results for: {{ searchTerm }}
     </h2>
 
     <div v-show="items">
-      <a-space direction="vertical" size="large" style="padding: 50px">
+      <div style="padding: 50px">
         <a-row :gutter="[20, 20]">
           <a-col
             class="gutter-row"
@@ -38,7 +38,7 @@
             </a-card>
           </a-col>
         </a-row>
-      </a-space>
+      </div>
     </div>
     <div v-show="!items">
       <template>
@@ -66,7 +66,9 @@ export default {
     }
 
     if (this.searchTerm) {
-      const { data } = await axios(`${this.apiURL}/products/search?q=${this.searchTerm}`);
+      const { data } = await axios(
+        `${this.apiURL}/products/search?q=${this.searchTerm}`
+      );
       this.items = data;
     }
   },
@@ -77,7 +79,7 @@ export default {
   },
   methods: {
     openThisProduct(item) {
-      this.$router.push({ name: 'productDetails', params: { id: item.id } });
+      this.$router.push({ name: "productDetails", params: { id: item.id } });
     },
   },
   mixins: [apiMixin],

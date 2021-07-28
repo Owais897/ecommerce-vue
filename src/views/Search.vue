@@ -14,15 +14,15 @@ export default {
   },
   data() {
     return {
-      searchTerm: '',
-    }
+      searchTerm: "",
+    };
   },
   created() {
     const { searchTerm } = this.$route.params;
     if (searchTerm) {
       this.searchTerm = searchTerm;
     }
-  }
+  },
 };
 </script>
 
