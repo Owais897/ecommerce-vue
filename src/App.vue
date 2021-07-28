@@ -5,7 +5,7 @@
         <Navbar />
       </a-layout-header>
       <a-layout-content>
-        <router-view />
+        <router-view :key="$route.fullPath" />
       </a-layout-content>
       <!-- <a-layout-footer>Footer</a-layout-footer> -->
     </a-layout>

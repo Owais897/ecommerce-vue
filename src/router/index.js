@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Search from "../views/Search.vue";
 import ProductDetails from "../views/ProductDetails.vue";
 import Cart from "../views/Cart.vue";
 
@@ -11,6 +12,11 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+  },
+  {
+    path: "/search/:searchTerm",
+    name: "Search",
+    component: Search,
   },
   {
     path: "/product/:id",

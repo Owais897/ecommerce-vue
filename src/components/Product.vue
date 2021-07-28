@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div v-show="items.length > 0">
+    <h2 v-if="searchTerm" style="margin: 25px 10px 30px; text-align: left;">
+      Search Results for: {{ searchTerm }}
+    </h2>
+
+    <div v-show="items">
       <a-space direction="vertical" size="large" style="padding: 50px">
         <a-row :gutter="[20, 20]">
           <a-col
@@ -36,7 +40,7 @@
         </a-row>
       </a-space>
     </div>
-    <div v-show="items.length === 0">
+    <div v-show="!items">
       <template>
         <a-row v-for="n in 4" :key="n" :gutter="[16, 32]">
           <a-col :span="6"> <a-skeleton /> </a-col>
@@ -55,20 +59,31 @@ import axios from "axios";
 
 export default {
   created: async function () {
-    const { data } = await axios(`${this.apiURL}/products`);
-    this.items = data;
+    if (this.$route.name === "Home") {
+      const { data } = await axios(`${this.apiURL}/products`);
+      this.items = data;
+      return;
+    }
+
+    if (this.searchTerm) {
+      const { data } = await axios(`${this.apiURL}/products/search?q=${this.searchTerm}`);
+      this.items = data;
+    }
   },
   data() {
     return {
-      items: [],
+      items: null,
     };
   },
   methods: {
     openThisProduct(item) {
-      this.$router.push(`product/${item.id}`);
+      this.$router.push({ name: 'productDetails', params: { id: item.id } });
     },
   },
   mixins: [apiMixin],
+  props: {
+    searchTerm: String,
+  },
 };
 </script>
 

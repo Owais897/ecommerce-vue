@@ -2,7 +2,7 @@ export const apiMixin = {
   data: function () {
     return {
       get apiURL() {
-        return "https://fakestoreapi.com";
+        return "https://fake-products-app.herokuapp.com";
       },
     };
   },

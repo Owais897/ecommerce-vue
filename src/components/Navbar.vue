@@ -1,30 +1,24 @@
 <template>
   <div class="nav-container">
-    <div class="logo"></div>
-    <a-menu
-      theme="dark"
-      mode="horizontal"
-      :default-selected-keys="['1']"
-      :style="{ lineHeight: '64px' }"
-    >
-      <a-menu-item key="1">
-        <router-link to="/">Home</router-link>
-      </a-menu-item>
-      <a-menu-item key="2">
-        <router-link to="/about">About</router-link>
-      </a-menu-item>
-      <a-menu-item key="3" :style="{ float: 'right' }">
-        <router-link to="/cart">
-          <a-badge :count="allProductLength">
-            <a href="#" class="head-example" />
-            <a-icon
-              type="shopping-cart"
-              :style="{ fontSize: '20px', marginTop: '3px' }"
-            />
-          </a-badge>
-        </router-link>
-      </a-menu-item>
-    </a-menu>
+    <router-link to="/">
+      <div class="logo"></div>
+    </router-link>
+    <a-input-search
+      placeholder="input search text"
+      enter-button
+      style="width: 250px"
+      @search="onSearch"
+      v-model="searchTerm"
+    />
+    <router-link to="/cart">
+      <a-badge :count="allProductLength">
+        <a href="#" class="head-example" />
+        <a-icon
+          type="shopping-cart"
+          :style="{ fontSize: '20px', marginTop: '3px' }"
+        />
+      </a-badge>
+    </router-link>
   </div>
 </template>
 
@@ -32,13 +26,29 @@
 import { mapGetters } from "vuex";
 export default {
   name: "Navbar",
+  data() {
+    return {
+      searchTerm: '',
+    }
+  },
   computed: {
     ...mapGetters(["allProductLength"]),
+  },
+  methods: {
+    onSearch(searchTerm) {
+      this.searchTerm = '';
+      this.$router.push({ name: 'Search', params: { searchTerm } });
+    },
   },
 };
 </script>
 
 <style>
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .nav-container .logo {
   width: 120px;
   height: 31px;
