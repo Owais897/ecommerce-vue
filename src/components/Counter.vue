@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span class="price"> Price {{ (product.price * value).toFixed(2) }} </span>
+    <span class="price"> Total Price: {{ (product.price * value).toFixed(2) }} </span>
     <br />
     <a-button
       @click="subtractFromCounter(product)"
@@ -83,6 +83,6 @@ export default {
 }
 .price {
   color: orange;
-  font-size: 25px;
+  font-size: 20px;
 }
 </style>
