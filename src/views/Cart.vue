@@ -41,7 +41,11 @@
         <a-affix :offset-top="120">
           <a-alert :message="'total Bill ' + getTotalBill" type="success" />
           <br />
-          <a-table :columns="columns" :data-source="getBillBreakDown">
+          <a-table
+            :columns="columns"
+            :data-source="getBillBreakDown"
+            :scroll="{ y: 440 }"
+          >
             <a slot="name" slot-scope="text">{{ text }}</a>
           </a-table>
         </a-affix>
@@ -60,13 +64,13 @@ const columns = [
     scopedSlots: { customRender: 'title' },
   },
   {
-    title: 'Count',
+    title: 'Countttt',
     dataIndex: 'value',
     key: 'value',
     // width: 80,
   },
   {
-    title: 'Price',
+    title: 'Pricewww',
     dataIndex: 'price',
     key: 'price',
     ellipsis: true,
