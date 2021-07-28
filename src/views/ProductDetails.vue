@@ -12,6 +12,7 @@
             </a-col>
             <a-col :span="12">
               <div class="product-detail">
+                <h2>Price: {{ product.price }}</h2>
                 <p>{{ product.description }}</p>
                 <Counter :product="product"></Counter>
               </div>
@@ -76,6 +77,10 @@ export default {
 }
 .product-detail {
   text-align: left;
+}
+.product-detail h2 {
+  color: #747691;
+  font-size: 30px;
 }
 .align-item {
   display: flex;
