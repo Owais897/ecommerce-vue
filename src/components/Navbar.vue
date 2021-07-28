@@ -1,7 +1,7 @@
 <template>
   <div class="nav-container">
     <router-link to="/">
-      <div class="logo"></div>
+      <div class="logo">Commerce Cart</div>
     </router-link>
     <a-input-search
       placeholder="input search text"
@@ -52,11 +52,10 @@ export default {
   justify-content: space-between;
 }
 .nav-container .logo {
-  width: 120px;
-  height: 31px;
-  background: url("../assets/logo.png") no-repeat center;
-  background-size: contain;
-  margin: 16px 28px 16px 0;
-  float: left;
+  font-size: 24px;
+  font-weight: bolder;
+  font-style: oblique;
+  text-transform: uppercase;
+  font-variant: all-petite-caps;
 }
 </style>
