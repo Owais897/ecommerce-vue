@@ -6,6 +6,7 @@
 
     <div v-show="items">
       <div style="padding: 50px">
+        <h2 class="product-title">Products</h2>
         <a-row :gutter="[20, 20]">
           <a-col
             class="gutter-row"
@@ -99,6 +100,11 @@ export default {
 }
 .price {
   color: orange;
+}
+.product-title {
+  margin-bottom: 40px;
+  font-size: 35px;
+  font-style: oblique;
 }
 </style>
 >
