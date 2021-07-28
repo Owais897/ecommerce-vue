@@ -52,6 +52,11 @@ export default new Vuex.Store({
       }
       state.cart = [...state.cart.filter((v) => v.id !== id)];
     },
+    clearCart(state) {
+      console.log('inside clearing cart');
+
+      state.cart = [];
+    },
   },
   getters: {
     allProductLength: (state) => state.cart.filter((v) => v.value != 0).length,

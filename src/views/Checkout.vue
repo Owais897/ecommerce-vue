@@ -112,7 +112,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex';
+import { mapState, mapGetters, mapMutations } from 'vuex';
 const columns = [
   {
     title: 'Title',
@@ -153,6 +153,7 @@ export default {
     ...mapGetters(['getTotalBill', 'getBillBreakDown']),
   },
   methods: {
+    ...mapMutations(['clearCart']),
     handleSubmit(e) {
       e.preventDefault();
       this.form.validateFields((err, values) => {
@@ -175,6 +176,8 @@ export default {
           </div>
         ),
       });
+      console.log('clearing cart');
+      this.clearCart();
     },
 
     handleOk(e) {
