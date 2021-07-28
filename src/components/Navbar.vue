@@ -36,6 +36,8 @@ export default {
   },
   methods: {
     onSearch(searchTerm) {
+      if (!searchTerm) return;
+
       this.searchTerm = "";
       this.$router.push({ name: "Search", params: { searchTerm } });
     },
