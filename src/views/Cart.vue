@@ -39,6 +39,10 @@
       <a-col :span="8">
         <a-affix :offset-top="120">
           <div>total Bill {{ getTotalBill }}</div>
+
+          <a-table :columns="columns" :data-source="getBillBreakDown">
+            <a slot="name" slot-scope="text">{{ text }}</a>
+          </a-table>
         </a-affix>
       </a-col>
     </a-row>
@@ -47,20 +51,53 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapGetters } from "vuex";
+const columns = [
+  {
+    title: 'Title',
+    dataIndex: 'title',
+    key: 'title',
+    scopedSlots: { customRender: 'title' },
+  },
+  {
+    title: 'Value',
+    dataIndex: 'value',
+    key: 'value',
+    // width: 80,
+  },
+  {
+    title: 'Price',
+    dataIndex: 'price',
+    key: 'price',
+    ellipsis: true,
+  },
+  {
+    title: 'Total',
+    dataIndex: 'total',
+    key: 'total',
+    ellipsis: true,
+  },
+];
+
+import { mapState, mapMutations, mapGetters } from 'vuex';
 export default {
+  data() {
+    return {
+      // data,
+      columns,
+    };
+  },
   computed: {
-    ...mapState(["cart"]),
-    ...mapGetters(["getTotalBill"]),
+    ...mapState(['cart']),
+    ...mapGetters(['getTotalBill', 'getBillBreakDown']),
   },
   methods: {
     titleCount(item) {
       return `${item.title} count ${item.value}`;
     },
-    ...mapMutations(["increaseCount", "decreaseCount", "removeProduct"]),
+    ...mapMutations(['increaseCount', 'decreaseCount', 'removeProduct']),
     increaseNumber(id) {
       this.increaseCount(id);
-      console.log("cart: ", this.cart);
+      console.log('cart: ', this.cart);
     },
     decreaseNumber(id) {
       this.decreaseCount(id);
