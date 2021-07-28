@@ -4,6 +4,7 @@ import Home from '../views/Home.vue';
 import ProductDetails from '../views/ProductDetails.vue';
 import Cart from '../views/Cart.vue';
 import Checkout from '../views/Checkout.vue';
+import Search from '../views/Search.vue';
 
 Vue.use(VueRouter);
 
@@ -17,6 +18,11 @@ const routes = [
     path: '/product/:id',
     name: 'productDetails',
     component: ProductDetails,
+  },
+  {
+    path: '/search/:searchTerm',
+    name: 'Search',
+    component: Search,
   },
   {
     path: '/checkout',
