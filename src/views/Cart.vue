@@ -41,7 +41,11 @@
         <a-affix :offset-top="120">
           <a-alert :message="'total Bill ' + getTotalBill" type="success" />
           <br />
-          <a-table :columns="columns" :data-source="getBillBreakDown">
+          <a-table
+            :columns="columns"
+            :data-source="getBillBreakDown"
+            :scroll="{ y: 440 }"
+          >
             <a slot="name" slot-scope="text">{{ text }}</a>
           </a-table>
         </a-affix>
