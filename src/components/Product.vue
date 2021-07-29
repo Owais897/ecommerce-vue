@@ -2,7 +2,9 @@
   <div>
     <div v-show="items">
       <div style="padding: 50px">
-        <h2 v-if="searchTerm" class="product-title">Search Results for: {{ searchTerm }}</h2>
+        <h2 v-if="searchTerm" class="product-title">
+          Search Results for: {{ searchTerm }}
+        </h2>
         <h2 v-if="!searchTerm" class="product-title">Products</h2>
         <a-row :gutter="[20, 20]">
           <a-col
