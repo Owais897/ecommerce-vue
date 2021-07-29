@@ -51,9 +51,7 @@
               ]"
             ></a-input>
           </a-form-item>
-          <a-form-item :wrapper-col="{ span: 12, offset: 5 }">
-            <!-- <a-button type="primary" html-type="submit"> Submit </a-button> -->
-          </a-form-item>
+          <a-form-item :wrapper-col="{ span: 12, offset: 5 }"> </a-form-item>
         </a-form>
       </a-col>
       <a-col :span="12">
@@ -96,18 +94,6 @@
             >
               Place Order
             </a-button>
-            <!-- <a-modal
-              v-model="visible"
-              title="Order placed"
-              @ok="handleOk"
-              :cancelButtonProps="{ display: 'none' }"
-            >
-              <p>{{ modalMessage }}</p>
-            </a-modal> -->
-            <!-- <a-row>
-              <a-col :span="12"></a-col>
-              <a-col :span="12"></a-col>
-            </a-row> -->
           </div>
         </div>
       </a-col>
@@ -141,16 +127,12 @@ const columns = [
 export default {
   data() {
     return {
-      // data,
       modalMessage: '',
       columns,
       formLayout: 'horizontal',
       form: this.$form.createForm(this, { name: 'coordinated' }),
       visible: false,
     };
-  },
-  created() {
-    console.log('aaaaaaaaaaaaaaaaa');
   },
   computed: {
     ...mapState(['cart']),
@@ -162,9 +144,6 @@ export default {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
-          console.log('Received values of form: ', values);
-
-          //   this.visible = true;
           this.modalMessage = `Hi ${values.name} your order is placed on address ${values.address} with total bill of ${this.getTotalBill}`;
           this.show();
         }
