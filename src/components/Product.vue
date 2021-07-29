@@ -1,12 +1,9 @@
 <template>
   <div>
-    <h2 v-if="searchTerm" style="margin: 25px 10px 30px; text-align: left">
-      Search Results for: {{ searchTerm }}
-    </h2>
-
     <div v-show="items">
       <div style="padding: 50px">
-        <h2 class="product-title">Products</h2>
+        <h2 v-if="searchTerm" class="product-title">Search Results for: {{ searchTerm }}</h2>
+        <h2 v-if="!searchTerm" class="product-title">Products</h2>
         <a-row :gutter="[20, 20]">
           <a-col
             class="gutter-row"
