@@ -89,7 +89,11 @@
                 </p>
               </a-collapse-panel>
             </a-collapse>
-            <a-button style="margin-top: 20px" @click="handleSubmit">
+            <a-button
+              :disabled="cart.length == 0"
+              style="margin-top: 20px"
+              @click="handleSubmit"
+            >
               Place Order
             </a-button>
             <!-- <a-modal
