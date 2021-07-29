@@ -1,39 +1,43 @@
 <template>
   <div style="padding: 50px 30px">
-    <a-row :gutter="[16, 0]">
+    <a-row :gutter="[50, 0]">
       <a-col :span="16">
-        <a-list item-layout="vertical" size="large" :data-source="cart">
-          <a-list-item slot="renderItem" key="item.title" slot-scope="item">
-            <template slot="actions">
-              <a-space>
-                <a-button
-                  @click="increaseNumber(item.id)"
-                  type="primary"
-                  shape="circle"
-                >
-                  +
-                </a-button>
-                {{ item.value }}
-                <a-button
-                  @click="decreaseCount(item.id)"
-                  type="primary"
-                  shape="circle"
-                >
-                  -
-                </a-button>
-                <a-button
-                  @click="deleteProduct(item.id)"
-                  type="danger"
-                  shape="circle"
-                >
-                  <a-icon type="delete" />
-                </a-button>
-              </a-space>
-            </template>
-            <img slot="extra" width="100px" alt="logo" :src="item.image" />
+        <a-list
+          class="demo-loadmore-list"
+          item-layout="horizontal"
+          :data-source="cart"
+        >
+          <a-list-item slot="renderItem" slot-scope="item">
+            <a-button
+              slot="actions"
+              @click="increaseNumber(item.id)"
+              type="primary"
+              shape="circle"
+            >
+              +
+            </a-button>
+            <a-button
+              slot="actions"
+              @click="decreaseCount(item.id)"
+              type="primary"
+              shape="circle"
+            >
+              -
+            </a-button>
+            <a-button
+              slot="actions"
+              @click="deleteProduct(item.id)"
+              type="danger"
+              shape="circle"
+            >
+              <a-icon type="delete" />
+            </a-button>
+
             <a-list-item-meta :description="item.description">
-              <a slot="title" :href="item.href">{{ item.title }}</a>
+              <h3 slot="title">{{ item.title }}</h3>
+              <img slot="avatar" width="100px" alt="logo" :src="item.image" />
             </a-list-item-meta>
+            <div class="list-count">{{ item.value }}</div>
           </a-list-item>
         </a-list>
       </a-col>
@@ -49,7 +53,6 @@
               </a-button></a-col
             >
           </a-row>
-
           <br />
           <a-table
             :columns="columns"
@@ -127,4 +130,17 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.ant-list-item {
+  position: relative;
+  text-align: left;
+}
+.ant-list-item .list-count {
+  position: absolute;
+  top: 22px;
+  right: 68px;
+}
+.ant-list-item-meta {
+  align-items: center !important;
+}
+</style>
