@@ -2,13 +2,39 @@
   <div>
     <div v-show="items">
       <div style="padding: 50px">
-        <h2 v-if="searchTerm" class="product-title">
-          Search Results for: {{ searchTerm }}
-        </h2>
-        <h2 v-if="!searchTerm" class="product-title">Products</h2>
-        <strong>sort by price:</strong>
-        <a-button key="3" @click="sortAscendingAction"> Low to High </a-button>
-        <a-button key="2" @click="sortDescendingAction"> High to Low </a-button>
+        <span style="display: flex; align-items: center">
+          <h2
+            v-if="searchTerm"
+            style="width: 60%; display: flex; justify-content: flex-start"
+            class="product-title"
+          >
+            Search Results for: {{ searchTerm }}
+          </h2>
+          <h2
+            v-if="!searchTerm"
+            style="width: 60%; display: flex; justify-content: flex-start"
+            class="product-title"
+          >
+            Products
+          </h2>
+          <div style="width: 40%; display: flex; justify-content: flex-end">
+            <strong style="margin-top: 5px">sort by price: </strong>
+            <a-button
+              key="3"
+              style="margin-left: 10px"
+              @click="sortAscendingAction"
+            >
+              Low to High
+            </a-button>
+            <a-button
+              key="2"
+              style="margin-left: 10px"
+              @click="sortDescendingAction"
+            >
+              High to Low
+            </a-button>
+          </div>
+        </span>
         <a-row :gutter="[20, 20]">
           <a-col
             class="gutter-row"
@@ -114,7 +140,7 @@ export default {
   color: orange;
 }
 .product-title {
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   font-size: 35px;
   font-style: oblique;
 }
