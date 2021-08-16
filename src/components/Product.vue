@@ -38,9 +38,12 @@
         <a-row :gutter="[20, 20]">
           <a-col
             class="gutter-row"
-            :span="6"
             v-for="item in items"
             :key="item.id"
+            :xl="{ span: 6 }"
+            :lg="{ span: 8 }"
+            :md="{ span: 12 }"
+            :xs="{ span: 24 }"
           >
             <a-card @click="openThisProduct(item)" hoverable>
               <img slot="cover" alt="example" :src="item.image" />
