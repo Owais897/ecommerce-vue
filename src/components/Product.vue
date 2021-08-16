@@ -6,6 +6,9 @@
           Search Results for: {{ searchTerm }}
         </h2>
         <h2 v-if="!searchTerm" class="product-title">Products</h2>
+        <strong>sort by price:</strong>
+        <a-button key="3" @click="sortAscendingAction"> Low to High </a-button>
+        <a-button key="2" @click="sortDescendingAction"> High to Low </a-button>
         <a-row :gutter="[20, 20]">
           <a-col
             class="gutter-row"
@@ -21,7 +24,7 @@
                     <template slot="title">
                       {{ item.title }}
                     </template>
-                    <span>{{ item.title.substring(0, 65) + "..." }}</span>
+                    <span>{{ item.title.substring(0, 65) + '...' }}</span>
                   </a-tooltip>
                 </span>
                 <template slot="description">
@@ -29,7 +32,7 @@
                     <template slot="title">
                       {{ item.description }}
                     </template>
-                    <span>{{ item.description.substring(0, 65) + "..." }}</span>
+                    <span>{{ item.description.substring(0, 65) + '...' }}</span>
                     <br />
                     <span class="price"> Price: {{ item.price }} </span>
                   </a-tooltip>
@@ -54,12 +57,12 @@
 </template>
 
 <script>
-import { apiMixin } from "../mixins";
-import axios from "axios";
+import { apiMixin } from '../mixins';
+import axios from 'axios';
 
 export default {
   created: async function () {
-    if (this.$route.name === "Home") {
+    if (this.$route.name === 'Home') {
       const { data } = await axios(`${this.apiURL}/products`);
       this.items = data;
       return;
@@ -78,8 +81,18 @@ export default {
     };
   },
   methods: {
+    sortAscendingAction() {
+      this.items = this.items.sort(function (a, b) {
+        return a.price - b.price;
+      });
+    },
+    sortDescendingAction() {
+      this.items = this.items.sort(function (a, b) {
+        return b.price - a.price;
+      });
+    },
     openThisProduct(item) {
-      this.$router.push({ name: "productDetails", params: { id: item.id } });
+      this.$router.push({ name: 'productDetails', params: { id: item.id } });
     },
   },
   mixins: [apiMixin],
