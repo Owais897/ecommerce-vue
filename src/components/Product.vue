@@ -2,39 +2,53 @@
   <div>
     <div v-show="items">
       <div style="padding: 50px">
-        <span style="display: flex; align-items: center">
-          <h2
-            v-if="searchTerm"
-            style="width: 60%; display: flex; justify-content: flex-start"
-            class="product-title"
+        <a-row>
+          <a-col
+            :xl="{ span: 16 }"
+            :lg="{ span: 16 }"
+            :md="{ span: 24 }"
+            :xs="{ span: 24 }"
           >
-            Search Results for: {{ searchTerm }}
-          </h2>
-          <h2
-            v-if="!searchTerm"
-            style="width: 60%; display: flex; justify-content: flex-start"
-            class="product-title"
+            <h2
+              v-if="searchTerm"
+              style="display: flex; justify-content: flex-start"
+              class="product-title"
+            >
+              Search Results for: {{ searchTerm }}
+            </h2>
+            <h2
+              v-if="!searchTerm"
+              style="display: flex; justify-content: flex-start"
+              class="product-title"
+            >
+              Products
+            </h2>
+          </a-col>
+          <a-col
+            :xl="{ span: 8 }"
+            :lg="{ span: 8 }"
+            :md="{ span: 24 }"
+            :xs="{ span: 24 }"
           >
-            Products
-          </h2>
-          <div style="width: 40%; display: flex; justify-content: flex-end">
-            <strong style="margin-top: 5px">sort by price: </strong>
-            <a-button
-              key="3"
-              style="margin-left: 10px"
-              @click="sortAscendingAction"
-            >
-              Low to High
-            </a-button>
-            <a-button
-              key="2"
-              style="margin-left: 10px"
-              @click="sortDescendingAction"
-            >
-              High to Low
-            </a-button>
-          </div>
-        </span>
+            <div style="display: flex; justify-content: flex-end">
+              <strong style="margin-top: 5px">sort by price: </strong>
+              <a-button
+                key="3"
+                style="margin-left: 10px"
+                @click="sortAscendingAction"
+              >
+                Low to High
+              </a-button>
+              <a-button
+                key="2"
+                style="margin-left: 10px"
+                @click="sortDescendingAction"
+              >
+                High to Low
+              </a-button>
+            </div>
+          </a-col>
+        </a-row>
         <a-row :gutter="[20, 20]">
           <a-col
             class="gutter-row"
