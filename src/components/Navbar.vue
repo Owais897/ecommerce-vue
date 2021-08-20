@@ -1,7 +1,7 @@
 <template>
   <div class="nav-container">
     <router-link to="/">
-      <div class="logo">Commerce Cart</div>
+      <div class="logo">Shazz</div>
     </router-link>
     <a-input-search
       placeholder="input search text"
@@ -23,23 +23,23 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 export default {
-  name: "Navbar",
+  name: 'Navbar',
   data() {
     return {
-      searchTerm: "",
+      searchTerm: '',
     };
   },
   computed: {
-    ...mapGetters(["allProductLength"]),
+    ...mapGetters(['allProductLength']),
   },
   methods: {
     onSearch(searchTerm) {
       if (!searchTerm) return;
 
-      this.searchTerm = "";
-      this.$router.push({ name: "Search", params: { searchTerm } });
+      this.searchTerm = '';
+      this.$router.push({ name: 'Search', params: { searchTerm } });
     },
   },
 };
