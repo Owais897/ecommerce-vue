@@ -30,7 +30,9 @@
             :md="{ span: 24 }"
             :xs="{ span: 24 }"
           >
-            <div style="display: flex; justify-content: flex-end">
+            <div
+              style="display: flex; justify-content: flex-end; flex-wrap: wrap"
+            >
               <strong style="margin-top: 5px">sort by price: </strong>
               <a-button
                 key="3"
