@@ -57,7 +57,7 @@
           <a-table
             :columns="columns"
             :data-source="getBillBreakDown"
-            :scroll="{ y: 440 }"
+            :scroll="{ y: 440, x: 200 }"
           >
             <a slot="name" slot-scope="text">{{ text }}</a>
           </a-table>
@@ -71,32 +71,35 @@
 <script>
 const columns = [
   {
-    title: "Title",
-    dataIndex: "title",
-    key: "title",
-    scopedSlots: { customRender: "title" },
+    title: 'Title',
+    dataIndex: 'title',
+    key: 'title',
+    scopedSlots: { customRender: 'title' },
+    width: 80,
   },
   {
-    title: "Count",
-    dataIndex: "value",
-    key: "value",
-    // width: 80,
+    title: 'Count',
+    dataIndex: 'value',
+    key: 'value',
+    width: 80,
   },
   {
-    title: "Price",
-    dataIndex: "price",
-    key: "price",
+    title: 'Price',
+    dataIndex: 'price',
+    key: 'price',
+    width: 80,
     ellipsis: true,
   },
   {
-    title: "Total/Product",
-    dataIndex: "total",
-    key: "total",
+    title: 'Total/Product',
+    dataIndex: 'total',
+    key: 'total',
+    width: 120,
     ellipsis: true,
   },
 ];
 
-import { mapState, mapMutations, mapGetters } from "vuex";
+import { mapState, mapMutations, mapGetters } from 'vuex';
 export default {
   data() {
     return {
@@ -105,8 +108,8 @@ export default {
     };
   },
   computed: {
-    ...mapState(["cart"]),
-    ...mapGetters(["getTotalBill", "getBillBreakDown"]),
+    ...mapState(['cart']),
+    ...mapGetters(['getTotalBill', 'getBillBreakDown']),
   },
   methods: {
     gotoCheckoutPage() {
@@ -115,10 +118,10 @@ export default {
     titleCount(item) {
       return `${item.title} count ${item.value}`;
     },
-    ...mapMutations(["increaseCount", "decreaseCount", "removeProduct"]),
+    ...mapMutations(['increaseCount', 'decreaseCount', 'removeProduct']),
     increaseNumber(id) {
       this.increaseCount(id);
-      console.log("cart: ", this.cart);
+      console.log('cart: ', this.cart);
     },
     decreaseNumber(id) {
       this.decreaseCount(id);
