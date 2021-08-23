@@ -4,9 +4,9 @@
       <div style="padding: 50px">
         <a-row>
           <a-col
-            :xl="{ span: 16 }"
-            :lg="{ span: 16 }"
-            :md="{ span: 24 }"
+            :xl="{ span: 12 }"
+            :lg="{ span: 12 }"
+            :md="{ span: 12 }"
             :xs="{ span: 24 }"
           >
             <h2
@@ -25,9 +25,9 @@
             </h2>
           </a-col>
           <a-col
-            :xl="{ span: 8 }"
-            :lg="{ span: 8 }"
-            :md="{ span: 24 }"
+            :xl="{ span: 12 }"
+            :lg="{ span: 12 }"
+            :md="{ span: 12 }"
             :xs="{ span: 24 }"
           >
             <div
