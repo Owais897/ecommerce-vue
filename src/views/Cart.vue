@@ -1,7 +1,12 @@
 <template>
   <div style="padding: 50px 30px">
     <a-row :gutter="[50, 0]">
-      <a-col :span="16">
+      <a-col
+        :xl="{ span: 16 }"
+        :lg="{ span: 16 }"
+        :md="{ span: 12 }"
+        :xs="{ span: 24 }"
+      >
         <a-list
           class="demo-loadmore-list"
           item-layout="horizontal"
@@ -41,7 +46,12 @@
           </a-list-item>
         </a-list>
       </a-col>
-      <a-col :span="8">
+      <a-col
+        :xl="{ span: 8 }"
+        :lg="{ span: 8 }"
+        :md="{ span: 12 }"
+        :xs="{ span: 24 }"
+      >
         <a-affix :offset-top="120">
           <a-row>
             <a-col :span="16">
