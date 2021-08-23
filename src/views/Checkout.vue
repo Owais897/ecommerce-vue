@@ -202,7 +202,7 @@
             <a-table
               :columns="columns"
               :data-source="getBillBreakDown"
-              :scroll="{ y: 200 }"
+              :scroll="{ y: 200, x: 200 }"
             >
               <a slot="name" slot-scope="text">{{ text }}</a>
             </a-table>
@@ -251,17 +251,19 @@ const columns = [
     dataIndex: 'title',
     key: 'title',
     scopedSlots: { customRender: 'title' },
+    width: 120,
   },
   {
     title: 'Count',
     dataIndex: 'value',
     key: 'value',
-    // width: 80,
+    width: 80,
   },
   {
     title: 'Total/Product',
     dataIndex: 'total',
     key: 'total',
+    width: 80,
     ellipsis: true,
   },
 ];
