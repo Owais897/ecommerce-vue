@@ -1,7 +1,12 @@
 <template>
   <div style="padding: 0 170px">
     <a-row :gutter="[50, 0]">
-      <a-col :span="12">
+      <a-col
+        :xl="{ span: 12 }"
+        :lg="{ span: 12 }"
+        :md="{ span: 12 }"
+        :xs="{ span: 24 }"
+      >
         <h3 class="main-heading">billing detail</h3>
         <a-form :form="form" @submit="handleSubmit">
           <a-row :gutter="[15, 0]">
@@ -185,7 +190,12 @@
           <br />
         </a-form>
       </a-col>
-      <a-col :span="12">
+      <a-col
+        :xl="{ span: 12 }"
+        :lg="{ span: 12 }"
+        :md="{ span: 12 }"
+        :xs="{ span: 24 }"
+      >
         <div>
           <h3 class="main-heading">Your Order</h3>
           <div class="order-box">
@@ -234,24 +244,24 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapMutations } from "vuex";
+import { mapState, mapGetters, mapMutations } from 'vuex';
 const columns = [
   {
-    title: "Title",
-    dataIndex: "title",
-    key: "title",
-    scopedSlots: { customRender: "title" },
+    title: 'Title',
+    dataIndex: 'title',
+    key: 'title',
+    scopedSlots: { customRender: 'title' },
   },
   {
-    title: "Count",
-    dataIndex: "value",
-    key: "value",
+    title: 'Count',
+    dataIndex: 'value',
+    key: 'value',
     // width: 80,
   },
   {
-    title: "Total/Product",
-    dataIndex: "total",
-    key: "total",
+    title: 'Total/Product',
+    dataIndex: 'total',
+    key: 'total',
     ellipsis: true,
   },
 ];
@@ -259,19 +269,19 @@ const columns = [
 export default {
   data() {
     return {
-      modalMessage: "",
+      modalMessage: '',
       columns,
-      formLayout: "horizontal",
-      form: this.$form.createForm(this, { name: "coordinated" }),
+      formLayout: 'horizontal',
+      form: this.$form.createForm(this, { name: 'coordinated' }),
       visible: false,
     };
   },
   computed: {
-    ...mapState(["cart"]),
-    ...mapGetters(["getTotalBill", "getBillBreakDown"]),
+    ...mapState(['cart']),
+    ...mapGetters(['getTotalBill', 'getBillBreakDown']),
   },
   methods: {
-    ...mapMutations(["clearCart"]),
+    ...mapMutations(['clearCart']),
     handleSubmit(e) {
       e.preventDefault();
       this.form.validateFields((err, values) => {
@@ -283,7 +293,7 @@ export default {
     },
     show() {
       this.$success({
-        title: "Order placed",
+        title: 'Order placed',
         // JSX support
         content: (
           <div>
@@ -291,7 +301,7 @@ export default {
           </div>
         ),
       });
-      console.log("clearing cart");
+      console.log('clearing cart');
       this.clearCart();
     },
 
@@ -316,7 +326,7 @@ export default {
 .ant-form {
   text-align: left;
 }
-.ant-form .ant-form-item{
+.ant-form .ant-form-item {
   margin-bottom: 4px;
 }
 .order-box {
