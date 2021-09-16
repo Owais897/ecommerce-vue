@@ -6,8 +6,22 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     cart: [],
+    items: [],
   },
   mutations: {
+    setItems(state, payload) {
+      state.items = payload;
+    },
+    sortAscendingAction(state) {
+      state.items = state.items.sort(function (a, b) {
+        return a.price - b.price;
+      });
+    },
+    sortDescendingAction(state) {
+      state.items = state.items.sort(function (a, b) {
+        return b.price - a.price;
+      });
+    },
     addProductToCart(state, payload) {
       let check = true;
 

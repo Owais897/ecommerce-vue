@@ -2,6 +2,13 @@
   <div>
     <div v-show="items">
       <div style="padding: 50px">
+        <span v-show="!searchTerm">
+          categaries
+          <span v-for="cat in categaries" :key="cat">
+            <a-button @click="getProductByCategory(cat)"> {{ cat }} </a-button>
+          </span>
+        </span>
+
         <a-row>
           <a-col
             :xl="{ span: 12 }"
@@ -104,38 +111,63 @@
 <script>
 import { apiMixin } from '../mixins';
 import axios from 'axios';
+import { mapState, mapMutations } from 'vuex';
 
 export default {
   created: async function () {
+    // console.log('sssssssssssssssssssssss');
     if (this.$route.name === 'Home') {
       const { data } = await axios(`${this.apiURL}/products`);
-      this.items = data;
-      return;
+      // this.items = data;
+      this.setItems(data);
+
+      // return;
     }
 
     if (this.searchTerm) {
       const { data } = await axios(
         `${this.apiURL}/products/search?q=${this.searchTerm}`
       );
-      this.items = data;
+      this.setItems(data);
     }
+    // console.log('aaaaaaaaaaaaaaaaa');
+    // fetch('https://fakestoreapi.com/products/categories')
+    //   .then((res) => res.json())
+    //   .then((json) => {
+    //     console.log(json);
+    //     this.categaries = json;
+    //   });
   },
   data() {
     return {
-      items: null,
+      // items: null,
+      categaries: [
+        'electronics',
+        'jewelery',
+        "men's clothing",
+        "women's clothing",
+      ], // [],
     };
   },
+  computed: {
+    ...mapState(['items']),
+  },
   methods: {
-    sortAscendingAction() {
-      this.items = this.items.sort(function (a, b) {
-        return a.price - b.price;
-      });
+    ...mapMutations([
+      'setItems',
+      'sortAscendingAction',
+      'sortDescendingAction',
+    ]),
+    // setItemInStore(data) {},
+    async getProductByCategory(cat) {
+      let d = await fetch(`https://fakestoreapi.com/products/category/${cat}`);
+      let da = await d.json();
+      // this.items = da;
+      this.setItems(da);
+
+      // this.$router.push('/');
     },
-    sortDescendingAction() {
-      this.items = this.items.sort(function (a, b) {
-        return b.price - a.price;
-      });
-    },
+
     openThisProduct(item) {
       this.$router.push({ name: 'productDetails', params: { id: item.id } });
     },
