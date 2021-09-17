@@ -2,12 +2,12 @@
   <div>
     <div v-show="items">
       <div style="padding: 50px">
-        <span v-show="!searchTerm">
+        <div v-show="!searchTerm" style="margin-bottom: 10px">
           categaries
           <span v-for="cat in categaries" :key="cat">
             <a-button @click="getProductByCategory(cat)"> {{ cat }} </a-button>
           </span>
-        </span>
+        </div>
 
         <a-row>
           <a-col
