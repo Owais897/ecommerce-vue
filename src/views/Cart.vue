@@ -12,7 +12,11 @@
           item-layout="horizontal"
           :data-source="cart"
         >
-          <a-list-item slot="renderItem" slot-scope="item">
+          <a-list-item
+            style="min-height: 150px"
+            slot="renderItem"
+            slot-scope="item"
+          >
             <a-button
               slot="actions"
               @click="increaseNumber(item.id)"
