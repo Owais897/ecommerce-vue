@@ -3,7 +3,7 @@
     <div v-show="items">
       <div style="padding: 50px">
         <div v-show="!searchTerm" style="margin-bottom: 10px">
-          categaries
+          categories
           <span v-for="cat in categaries" :key="cat">
             <a-button @click="getProductByCategory(cat)"> {{ cat }} </a-button>
           </span>
