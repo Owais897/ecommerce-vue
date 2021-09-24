@@ -288,7 +288,11 @@ export default {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
-          this.modalMessage = `Hi ${values.name} your order is placed on address ${values.address} with total bill of ${this.getTotalBill}`;
+          this.modalMessage = `Hi ${
+            values?.frist_name || ''
+          } your order is placed on address ${
+            values.address
+          } with total bill of ${this.getTotalBill}`;
           this.show();
         }
       });
