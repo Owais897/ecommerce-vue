@@ -4,7 +4,7 @@
       <div style="padding: 50px">
         <div v-show="!searchTerm" style="margin-bottom: 10px">
           categories
-          <span v-for="cat in categaries" :key="cat">
+          <span v-for="cat in categories" :key="cat">
             <a-button @click="getProductByCategory(cat)"> {{ cat }} </a-button>
           </span>
         </div>
@@ -69,7 +69,7 @@
             :xs="{ span: 24 }"
           >
             <a-card @click="openThisProduct(item)" hoverable>
-              <img slot="cover" alt="example" :src="item.image" />
+              <img slot="cover" alt="example" :src="item.thumbnail" />
               <a-card-meta>
                 <span slot="title">
                   <a-tooltip>
@@ -86,7 +86,7 @@
                     </template>
                     <span>{{ item.description.substring(0, 65) + '...' }}</span>
                     <br />
-                    <span class="price"> Price: {{ item.price }} </span>
+                    <span class="price"> Price: ${{ item.price }} </span>
                   </a-tooltip>
                 </template>
               </a-card-meta>
@@ -117,36 +117,33 @@ export default {
   created: async function () {
     // console.log('sssssssssssssssssssssss');
     if (this.$route.name === 'Home') {
-      const { data } = await axios(`${this.apiURL}/products`);
+      const { data } = await axios(`https://dummyjson.com/products`);
       // this.items = data;
-      this.setItems(data);
+      this.setItems(data.products);
 
       // return;
     }
 
     if (this.searchTerm) {
       const { data } = await axios(
-        `${this.apiURL}/products/search?q=${this.searchTerm}`
+        `https://dummyjson.com/products/search?q=${this.searchTerm}`
       );
-      this.setItems(data);
+      this.setItems(data.products);
     }
-    // console.log('aaaaaaaaaaaaaaaaa');
-    // fetch('https://fakestoreapi.com/products/categories')
-    //   .then((res) => res.json())
-    //   .then((json) => {
-    //     console.log(json);
-    //     this.categaries = json;
-    //   });
   },
   data() {
     return {
       // items: null,
-      categaries: [
-        'electronics',
-        'jewelery',
-        "men's clothing",
-        "women's clothing",
-      ], // [],
+      categories: [
+        'smartphones',
+        'laptops',
+        'skincare',
+        'groceries',
+        'furniture',
+        'tops',
+        'automotive',
+        'motorcycle',
+      ],
     };
   },
   computed: {
@@ -160,10 +157,10 @@ export default {
     ]),
     // setItemInStore(data) {},
     async getProductByCategory(cat) {
-      let d = await fetch(`https://fakestoreapi.com/products/category/${cat}`);
+      let d = await fetch(`https://dummyjson.com/products/category/${cat}`);
       let da = await d.json();
       // this.items = da;
-      this.setItems(da);
+      this.setItems(da.products);
 
       // this.$router.push('/');
     },

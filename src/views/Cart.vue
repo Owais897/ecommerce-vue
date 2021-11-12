@@ -44,7 +44,7 @@
 
             <a-list-item-meta :description="item.description">
               <h3 slot="title">{{ item.title }}</h3>
-              <img slot="avatar" width="100px" alt="logo" :src="item.image" />
+              <img slot="avatar" width="100px" alt="logo" :src="item.thumbnail" />
             </a-list-item-meta>
             <div class="list-count">{{ item.value }}</div>
           </a-list-item>
