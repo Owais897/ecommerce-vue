@@ -8,6 +8,7 @@
             <a-button
               style="margin-left: 5px"
               @click="getProductByCategory(cat)"
+              class="name"
             >
               {{ cat }}
             </a-button>
@@ -190,6 +191,10 @@ export default {
 </script>
 
 <style scoped>
+.name {
+  font-weight: 600;
+  text-transform: capitalize;
+}
 .ant-card-cover img {
   object-fit: contain;
   min-height: 280px;
