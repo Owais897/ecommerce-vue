@@ -76,7 +76,7 @@
                     <template slot="title">
                       {{ item.title }}
                     </template>
-                    <span>{{ item.title.substring(0, 65) + '...' }}</span>
+                    <span>{{ item.title.substring(0, 65) + "..." }}</span>
                   </a-tooltip>
                 </span>
                 <template slot="description">
@@ -84,7 +84,7 @@
                     <template slot="title">
                       {{ item.description }}
                     </template>
-                    <span>{{ item.description.substring(0, 65) + '...' }}</span>
+                    <span>{{ item.description.substring(0, 65) + "..." }}</span>
                     <br />
                     <span class="price"> Price: ${{ item.price }} </span>
                   </a-tooltip>
@@ -109,17 +109,15 @@
 </template>
 
 <script>
-import { apiMixin } from '../mixins';
-import axios from 'axios';
-import { mapState, mapMutations } from 'vuex';
+import { apiMixin } from "../mixins";
+import axios from "axios";
+import { mapState, mapMutations } from "vuex";
 
 export default {
   created: async function () {
     // console.log('sssssssssssssssssssssss');
-    if (this.$route.name === 'Home') {
-      const { data } = await axios(`https://dummyjson.com/products`);
-      // this.items = data;
-      this.setItems(data.products);
+    if (this.$route.name === "Home") {
+      await this.getAllProducts();
 
       // return;
     }
@@ -135,28 +133,38 @@ export default {
     return {
       // items: null,
       categories: [
-        'smartphones',
-        'laptops',
-        'skincare',
-        'groceries',
-        'furniture',
-        'tops',
-        'automotive',
-        'motorcycle',
+        "all",
+        "smartphones",
+        "laptops",
+        "skincare",
+        "groceries",
+        "furniture",
+        "tops",
+        "automotive",
+        "motorcycle",
       ],
     };
   },
   computed: {
-    ...mapState(['items']),
+    ...mapState(["items"]),
   },
   methods: {
     ...mapMutations([
-      'setItems',
-      'sortAscendingAction',
-      'sortDescendingAction',
+      "setItems",
+      "sortAscendingAction",
+      "sortDescendingAction",
     ]),
     // setItemInStore(data) {},
+    async getAllProducts() {
+      const { data } = await axios(`https://dummyjson.com/products`);
+      // this.items = data;
+      this.setItems(data.products);
+    },
     async getProductByCategory(cat) {
+      if (cat === "all") {
+        await this.getAllProducts();
+        return;
+      }
       let d = await fetch(`https://dummyjson.com/products/category/${cat}`);
       let da = await d.json();
       // this.items = da;
@@ -166,7 +174,7 @@ export default {
     },
 
     openThisProduct(item) {
-      this.$router.push({ name: 'productDetails', params: { id: item.id } });
+      this.$router.push({ name: "productDetails", params: { id: item.id } });
     },
   },
   mixins: [apiMixin],
