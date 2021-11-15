@@ -5,7 +5,12 @@
         <div v-show="!searchTerm" style="margin-bottom: 10px">
           categories
           <span v-for="cat in categories" :key="cat">
-            <a-button @click="getProductByCategory(cat)"> {{ cat }} </a-button>
+            <a-button
+              style="margin-left: 5px"
+              @click="getProductByCategory(cat)"
+            >
+              {{ cat }}
+            </a-button>
           </span>
         </div>
 
