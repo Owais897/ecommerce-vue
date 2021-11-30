@@ -202,6 +202,9 @@ export default {
   display: inline-block;
   padding: 12px;
 }
+.ant-card {
+  height: 420px;
+}
 .price {
   color: orange;
 }
