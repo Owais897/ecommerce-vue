@@ -1,7 +1,8 @@
 git.DS_Store
 node_modules
-/dist
-
+dist
+hosting.ZGlzdA.cache
+.firebase
 
 # local env files
 .env.local
