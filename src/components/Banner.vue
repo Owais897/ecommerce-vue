@@ -18,10 +18,10 @@
           alt=""
         />
         <div>
-          <a-row type="flex" justify="end" style="margin-right: 60px">
-            <a-col :span="12">
+          <a-row type="flex" justify="end" style="margin-right: 30px">
+            <a-col :span="14">
               <h2>Furniture</h2>
-              <p>
+              <p class="smallfont">
                 The vital part of every home is furniture, and it’s the first
                 thing to be considered while planning a home decor. Your home
                 furniture has to be presentable and classy, as it depicts your
@@ -89,5 +89,71 @@ export default {
 .ant-carousel >>> .custom-slick-arrow:hover {
   color: rgb(2, 2, 2);
   opacity: 0.7;
+}
+
+@media (max-width: 1000px) {
+  .ant-carousel >>> .slick-slide {
+    text-align: center;
+    height: 350px;
+    overflow: hidden;
+  }
+  .carousel-wrapper > div {
+    position: absolute;
+    top: 100px;
+    left: 120px;
+  }
+  .smallfont {
+    font-size: 12px;
+  }
+}
+@media (max-width: 700px) {
+  .ant-carousel >>> .slick-slide {
+    text-align: center;
+    height: 250px;
+    overflow: hidden;
+  }
+  .carousel-wrapper > div {
+    position: absolute;
+    top: 20px;
+    left: 120px;
+  }
+  .smallfont {
+    font-size: 10px;
+  }
+}
+@media (max-width: 550px) {
+  .smallfont {
+    font-size: 7px;
+  }
+}
+@media (max-width: 450px) {
+  .ant-carousel >>> .slick-slide {
+    text-align: center;
+    height: 250px;
+    overflow: hidden;
+  }
+  .carousel-wrapper > div {
+    position: absolute;
+    top: 40px;
+    left: 80px;
+  }
+  .smallfont {
+    font-size: 7px;
+  }
+}
+@media (max-width: 360px) {
+  .ant-carousel >>> .slick-slide {
+    text-align: center;
+    height: 150px;
+    overflow: hidden;
+  }
+  .carousel-wrapper > div {
+    position: absolute;
+    top: 10px;
+    left: 60px;
+  }
+  .smallfont {
+    font-size: 5px;
+  }
 }
 </style>
